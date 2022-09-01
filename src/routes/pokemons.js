@@ -66,7 +66,7 @@ router.get("/", async (req, res, next) => {
     });
 
     // Join data in API and DB
-    let allPokemons = [...pokeAllApi, ...pokeAllDb];
+    let allPokemons = [...pokeAllDb, ...pokeAllApi];
 
     // Filter if name is pased by query
     const { name } = req.query;
