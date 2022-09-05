@@ -31,6 +31,7 @@ router.get("/", async (req, res, next) => {
           weight: details.weight,
           types: details.types.map((t) => t.type.name),
           imageDefault: details.sprites.front_default,
+          imageBack: details.sprites.back_default,
           imageShiny: details.sprites.front_shiny,
           created: false,
         };
@@ -60,13 +61,14 @@ router.get("/", async (req, res, next) => {
         weight: poke.weight,
         types: poke.types.map((t) => t.name),
         imageDefault: poke.imageDefault,
+        imageBack: poke.imageBack,
         imageShiny: poke.imageShiny,
         created: true,
       };
     });
 
     // Join data in API and DB
-    let allPokemons = [...pokeAllDb, ...pokeAllApi];
+    let allPokemons = [...pokeAllApi, ...pokeAllDb];
 
     // Filter if name is pased by query
     const { name } = req.query;
@@ -116,6 +118,7 @@ router.get("/:id", async (req, res, next) => {
         weight: pokePromiseDb.weight,
         types: pokePromiseDb.types.map((t) => t.name),
         imageDefault: pokePromiseDb.imageDefault,
+        imageBack: pokePromiseDb.imageBack,
         imageShiny: pokePromiseDb.imageShiny,
       };
       res.send(pokeAllDb);
@@ -136,6 +139,7 @@ router.get("/:id", async (req, res, next) => {
         weight: pokePromiseApi.data.weight,
         types: pokePromiseApi.data.types.map((t) => t.type.name),
         imageDefault: pokePromiseApi.data.sprites.front_default,
+        imageBack: pokePromiseApi.data.sprites.back_default,
         imageShiny: pokePromiseApi.data.sprites.front_shiny,
         created: false,
       };
@@ -159,7 +163,6 @@ router.post("/", async (req, res, next) => {
       height,
       weight,
       imageDefault,
-      imageShiny,
       types,
     } = req.body;
 
@@ -174,7 +177,6 @@ router.post("/", async (req, res, next) => {
         height,
         weight,
         imageDefault,
-        imageShiny,
       },
     });
     // If the Pokemons exists return a msg, else, add Type of Pokemon to create the relation
