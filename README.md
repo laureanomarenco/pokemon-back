@@ -7,4 +7,4 @@ Si te interesa ejecutar el backend en tu server local deberás descargar el repo
 Usé [Express](https://expressjs.com/es/) como framework de desarrollo y [Sequelize](https://sequelize.org/) para modelar la database [PostgreSQL](https://www.postgresql.org/)
 
 
-<img align="center"  src= "https://res.cloudinary.com/dg7ssgadn/image/upload/v1666984202/banner_njqvvp.png" alt= "laureano"/>
+<img align="center"  src= "https://res.cloudinary.com/dg7ssgadn/image/upload/v1666991399/banner_ksekyy.png" alt= "laureano"/>
